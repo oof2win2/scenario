@@ -58,7 +58,7 @@ end)
 -- Get the data that is used with the production label
 local function get_production_label_data(name,tooltip,value,secondary)
     local data_colour = Production.get_color(config.color_clamp, value, secondary)
-    local surfix,caption = Production.format_number(value)
+    local surfix, caption = Production.format_number(value)
 
     return {
         name = name,
@@ -108,6 +108,7 @@ Gui.element(function(_,parent,science_pack_data)
 
     -- Change the style of the icon
     local pack_icon_style = pack_icon.style
+    pack_icon.ignored_by_interaction = true
     pack_icon_style.height = 55
     if icon_style == 'quick_bar_slot_button' then
         pack_icon_style.padding = {0,-2}
