@@ -27,12 +27,14 @@ Gui.element(function(_,parent)
     return parent.add{
         type = 'frame',
         direction = 'vertical',
-        style = 'image_frame'
+        style = 'inside_deep_frame'
     }
 end)
 :style{
     horizontally_stretchable = true,
-    horizontal_align = 'center'
+    horizontal_align = 'center',
+    padding = {2, 2},
+    top_margin = 2
 }
 
 --- Table which has a title above it above it
@@ -185,7 +187,8 @@ Gui.element(function(_,parent)
     -- Add the external links
     local external_links = title_table(scroll_pane, 235, {'readme.servers-external'}, 2)
     for _,key in ipairs{'discord','website','patreon','status','github'} do
-        Gui.centered_label(external_links, 110, key:gsub("^%l", string.upper))
+        local upper_key = key:gsub("^%l", string.upper)
+        Gui.centered_label(external_links, 110, upper_key)
         Gui.centered_label(external_links, 460, {'links.'..key}, {'readme.servers-open-in-browser'})
     end
 
