@@ -27,7 +27,7 @@ return {
     'modules.commands.warnings',
     'modules.commands.find',
     'modules.commands.home',
-    'modules.commands.connect',
+    -- 'modules.commands.connect',
 
     --- Addons
     'modules.addons.chat-popups',
@@ -35,13 +35,14 @@ return {
     'modules.addons.death-logger',
     'modules.addons.advanced-start',
     'modules.addons.spawn-area',
-    'modules.addons.compilatron',
+    -- 'modules.addons.compilatron',
     'modules.addons.scorched-earth',
     'modules.addons.pollution-grading',
     'modules.addons.station-auto-name',
     'modules.addons.discord-alerts',
     'modules.addons.chat-reply',
     'modules.addons.tree-decon',
+    'modules.addons.awflogging', -- logging for JammyBot (AwF)
 
     --- Data
     'modules.data.statistics',
@@ -56,7 +57,7 @@ return {
     'modules.gui.readme',
     'modules.gui.rocket-info',
     'modules.gui.science-info',
-    'modules.gui.warp-list',
+    -- 'modules.gui.warp-list',
     'modules.gui.task-list',
     'modules.gui.player-list',
     'modules.gui.server-ups',

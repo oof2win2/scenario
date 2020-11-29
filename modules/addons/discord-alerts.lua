@@ -37,7 +37,7 @@ local function emit_event(args)
     local players_online = 0
     local admins_online = 0
     for _, player in pairs(game.connected_players) do
-        players_online = players_online+1
+        players_online = players_online + 1
         if player.admin then
             admins_online = admins_online + 1
         end

@@ -26,11 +26,10 @@ return {
         ['softmod'] = {'info.softmod'},
         ['script'] = {'info.softmod'},
         ['loop'] = {'chat-bot.loops'},
-        ['rhd'] = {'info.lhd'},
-        ['lhd'] = {'info.lhd'},
+        ['rhd'] = {'info.rhd'},
+        ['lhd'] = {'info.rhd'},
         ['roundabout'] = {'chat-bot.loops'},
         ['roundabouts'] = {'chat-bot.loops'},
-        ['redmew'] = {'info.redmew'},
         ['afk'] = function(player)
             local max = player
             for _, next_player in pairs(game.connected_players) do
@@ -56,7 +55,7 @@ return {
     commands = { --- @setting commands will trigger only when command prefix is given
         ['dev'] = {'chat-bot.not-real-dev'},
         ['blame'] = function(player)
-            local names = {'Cooldude2606', 'arty714', 'badgamernl', 'mark9064', 'aldldl', 'Drahc_pro', player.name}
+            local names = {'oof2win2', 'Windsinger', 'BulletToothJake', 'DistroByte', 'WeldenWarden', player.name}
             for _, next_player in pairs(game.connected_players) do
                 names[#names + 1] = next_player.name
             end

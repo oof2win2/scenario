@@ -7,7 +7,7 @@ return {
     player_bans=true,
     player_mutes=true,
     player_kicks=true,
-    player_promotes=false,
+    player_promotes=true,
     player_jail=true,
     player_temp_ban=true,
     ['config']=true,

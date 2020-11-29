@@ -115,7 +115,7 @@ end)
 -- @element welcome_content
 Tab({'readme.welcome-tab'}, {'readme.welcome-tooltip'},
 Gui.element(function(_, parent)
-    local server_details = { name='ExpGaming S0 - Local', welcome='Failed to load description: disconnected from external api.', reset_time='Non Set', branch='Unknown'}
+    local server_details = { name='All-Weekend Factorio', welcome='Welcome to All-Weekend Factorio servers!', reset_time='Depends on server', branch='Unknown'}
     if External.valid() then server_details = External.get_current_server() end
     local container = parent.add{ type='flow', direction='vertical' }
     local player = Gui.get_player_from_element(parent)
@@ -228,7 +228,8 @@ Gui.element(function(_, parent)
         end
     else
         local factorio_servers = title_table(scroll_pane, 225, {'readme.servers-factorio'}, 2)
-        for i = 1, 8 do
+        -- @set the number of servers in the info
+        for i = 1, 3 do -- number of servers
             Gui.centered_label(factorio_servers, 110, {'readme.servers-'..i})
             Gui.centered_label(factorio_servers, 460, {'readme.servers-d'..i})
         end
@@ -236,7 +237,7 @@ Gui.element(function(_, parent)
 
     -- Add the external links
     local external_links = title_table(scroll_pane, 235, {'readme.servers-external'}, 2)
-    for _, key in ipairs{'discord', 'website', 'patreon', 'status', 'github'} do
+    for _, key in ipairs{'discord', 'website'} do  -- add 'patreon', 'github', 'status' when we get stuff
         local upper_key = key:gsub("^%l", string.upper)
         Gui.centered_label(external_links, 110, upper_key)
         Gui.centered_label(external_links, 460, {'links.'..key}, {'readme.servers-open-in-browser'})

@@ -41,10 +41,11 @@ local function spawn_turrets()
         for _, turret_pos in pairs(turrets) do
             local surface = game.surfaces[turret_pos.surface]
             local pos = turret_pos.position
-            local turret = surface.find_entity('gun-turret', pos)
+            local o = config.corrections.entities_offset
+            local turret = surface.find_entity('gun-turret', {pos.x + o.x, pos.y + o.y})
             -- Makes a new turret if it is not found
             if not turret or not turret.valid then
-                turret = surface.create_entity{name='gun-turret', position=pos, force='Spawn'}
+                turret = surface.create_entity{name='gun-turret', position={pos.x + o.x, pos.y + o.y}, force='Spawn'}
                 protect_entity(turret, true)
             end
             -- adds ammo to the turret
@@ -93,9 +94,9 @@ local function spawn_base(surface, position)
                 for _, entity in pairs(entities_to_remove) do
                     if entity.name ~= 'character' then entity.destroy() end
                 end
-            elseif prod < pr2 then
-                -- if it is inside the pattern radius
-                table.insert(tiles_to_make, {name=ptile, position=p})
+            -- elseif prod < pr2 then -- remove to not have a circle of tiles
+            --     -- if it is inside the pattern radius
+            --     table.insert(tiles_to_make, {name=ptile, position=p})
             end
         end
     end
@@ -105,21 +106,21 @@ end
 -- generates the pattern that is in the config
 local function spawn_pattern(surface, position)
     local tiles_to_make = {}
-    local ptile = config.corrections.pattern_tile
-    local o = config.corrections.offset
+    local o = config.corrections.tiles_offset
     local p = {x=position.x+o.x, y=position.y+o.y}
     for _, tile in pairs(tiles) do
-        table.insert(tiles_to_make, {name=ptile, position={tile[1]+p.x, tile[2]+p.y}})
+        table.insert(tiles_to_make, {name=tile.name, position={tile.position.x+p.x, tile.position.y+p.y}}) -- see config/spawn_area.lua to change
     end
     surface.set_tiles(tiles_to_make)
 end
 
 -- generates the entities that are in the config
 local function spawn_entities(surface, position)
-    local o = config.corrections.offset
+    local o = config.corrections.entities_offset
     local p = {x=position.x+o.x, y=position.y+o.y}
     for _, entity in pairs(entities) do
-        entity = surface.create_entity{name=entity[1], position={entity[2]+p.x, entity[3]+p.y}, force='neutral'}
+        entity = surface.create_entity{name=entity.name, position={entity.position.x+p.x, entity.position.y+p.y}, force='neutral'}
+        print (entity.position.x+p.x, entity.position.y+p.y)
         protect_entity(entity)
         entity.operable = true
     end
@@ -140,7 +141,7 @@ Event.add(defines.events.on_player_created, function(event)
     spawn_pattern(s, p)
     get_spawn_force()
     spawn_entities(s, p)
-    spawn_belts(s, p)
+    -- spawn_belts(s, p) -- the belts are useless
     spawn_turrets()
     player.teleport(p, s)
 end)

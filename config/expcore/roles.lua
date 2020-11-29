@@ -200,7 +200,8 @@ Roles.new_role('Member','Mem')
     'command/save-quickbar'
 }
 
-local hours3, hours15 = 3*216000, 15*60
+-- local hours3, hours15 = 3*216000, 15*60
+-- These players automatically don't get roles, as they get the role when linking to Discord
 Roles.new_role('Regular','Reg')
 :set_permission_group('Standard')
 :set_custom_color{r=79,g=155,b=163}
@@ -212,15 +213,15 @@ Roles.new_role('Regular','Reg')
     'command/me',
     'standard-decon'
 }
-:set_auto_assign_condition(function(player)
-    if player.online_time >= hours3 then
-        return true
-    else
-        local stats = Statistics:get(player, {})
-        local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
-        return playTime - afkTime >= hours15 and mapCount >= 5
-    end
-end)
+-- :set_auto_assign_condition(function(player)
+--     if player.online_time >= hours3 then -- auto assign after $hours3, which is currently 3h (from ticks)
+--         return true
+--     else
+--         local stats = Statistics:get(player, {})
+--         local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
+--         return playTime - afkTime >= hours15 and mapCount >= 5
+--     end
+-- end)
 
 --- Guest/Default role
 local default = Roles.new_role('Guest','')
@@ -277,44 +278,11 @@ Roles.define_role_order{
 }
 
 Roles.override_player_roles{
-    ["Cooldude2606"]={"Senior Administrator","Moderator","Senior Backer","Supporter"},
-    ["arty714"]={"Senior Administrator","Senior Backer","Supporter"},
-    ["Drahc_pro"]={"Administrator","Moderator","Veteran","Member"},
-    ["mark9064"]={"Administrator","Moderator","Member"},
-    ["aldldl"]={"Administrator","Moderator","Senior Backer","Sponsor","Supporter","Member"},
-
-    ["ookl"]={"Moderator","Senior Backer","Sponsor","Supporter","Partner","Member"},
-    ["hamsterbryan"]={"Moderator","Senior Backer","Supporter","Member"},
-    ["M74132"]={"Moderator","Senior Backer","Sponsor","Supporter","Member"},
-    ["LoicB"]={"Moderator","Senior Backer","Supporter","Veteran","Member"},
-    ["UUBlueFire"]={"Moderator","Senior Backer","Supporter","Member"},
-
-    ["thadius856"]={"Moderator","Supporter","Member"},
-    ["XenoCyber"]={"Moderator","Supporter","Partner","Member"},
-    ["cydes"]={"Moderator","Supporter","Member"},
-    ["darklich14"]={"Moderator","Supporter","Member"},
-    ["SilentLog"]={"Moderator","Supporter","Member"},
-    ["freek18"]={"Moderator","Supporter","Member"},
-    ["porelos"]={"Moderator","Supporter","Member"},
-
-    ["7h3w1z4rd"]={"Moderator","Member"},
-    ["Windbomb"]={"Moderator","Member"},
-    ["Phoenix27833"]={"Moderator","Member"},
-    ["banakeg"]={"Moderator","Member"},
-    ["maplesyrup01"]={"Moderator","Member"},
-    ["FlipHalfling90"]={"Moderator","Member"},
-    ["Ruuyji"]={"Moderator","Member"},
-    ["Gizan"]={"Moderator"},
-    ["samy115"]={"Moderator","Member"},
-    ["Hobbitkicker"]={"Moderator","Member"},
-    ["facere"]={"Moderator","Member"},
-    ["whoami32"]={"Moderator","Member"},
-    ["NextIdea"]={"Moderator","Member"},
-    ["mafisch3"]={"Moderator","Member"},
-    ["Tcheko"]={"Moderator","Member"},
-    ["AssemblyStorm"]={"Moderator","Veteran","Member"},
-    ["connormkii"]={"Moderator","Veteran","Member"},
-    ["Koroto"]={"Moderator","Veteran","Member"},
-    ["scarbvis"]={"Moderator","Member"},
-    ["CmonMate497"]={"Moderator","Member"}
+    ["Windsinger"]={"Senior Administrator","Moderator", "Member"},
+    ["BulletToothJake"]={"Senior Administrator", "Moderator", "Member"},
+    ["Weldenwarden"]={"Senior Administrator","Moderator", "Member"},
+    ["DistroByte"]={"Senior Administrator","Moderator", "Member"},
+    ["oof2win2"]={"Administrator","Moderator", "Member"},
+    ["Shalrath"]={"Administrator","Moderator","Member"},
+    -- add more role overrides below
 }
