@@ -177,15 +177,6 @@ Roles.new_role('Veteran','Vet')
 :allow{
     'command/chat-bot',
 }
-:set_auto_assign_condition(function(player)
-    if player.online_time >= hours10 then
-        return true
-    else
-        local stats = Statistics:get(player, {})
-        local playTime, afkTime, mapCount = stats.Playtime or 0, stats.AfkTime or 0, stats.MapsPlayed or 0
-        return playTime - afkTime >= hours250 and mapCount >= 25
-    end
-end)
 
 --- Standard User Roles
 Roles.new_role('Member','Mem')
