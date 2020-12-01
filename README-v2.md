@@ -1,12 +1,5 @@
 # This is a README for the scenario, but for devs on how to configure simple stuff/where stuff is
 
-# TODO:
-
-- Fix the 'Servers' menu to show only the servers we have enabled
-- Fix the whole main GUI
-- Make sure roles & perms are auto assigned & work
-- probably some more stuff
-
 # Info GUI
 
 `locale/<lang>/gui.cfg` - The general descriptions for stuff
