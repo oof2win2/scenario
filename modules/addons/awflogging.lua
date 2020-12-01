@@ -1,12 +1,12 @@
 local Event = require 'utils.event' --- @dep utils.event
-local Datastore = require 'expcore.datastore' --- @dep expcore.datastore
+local DatastoreManager = require 'expcore.datastore' --- @dep expcore.datastore
 
 --- @addon awflogging
 --[[
 	This is a module for general AwF logging
 ]]
 
-local AwfData = Datastore.connect('AwfData')
+local AwfData = DatastoreManager.connect('AwfData')
 AwfData:set_serializer(tostring)
 
 local function on_rocket_launched(event)

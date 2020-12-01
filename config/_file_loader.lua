@@ -28,6 +28,7 @@ return {
     'modules.commands.find',
     'modules.commands.home',
     -- 'modules.commands.connect',
+    -- 'modules.commands.linkme', -- command is for 0.2 release :)
 
     --- Addons
     'modules.addons.chat-popups',

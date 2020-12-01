@@ -16,6 +16,7 @@ CustomMessages:set_metadata{
 CustomMessages:on_load(function(player_name, player_message)
     local player = game.players[player_name]
     local custom_message = player_message or config[player_name]
+    print (custom_message)
     if custom_message then
         game.print(custom_message, player.color)
     else

@@ -68,7 +68,7 @@ return {
     skip_victory=false, --- @setting skip_victory will skip the victory screen when a rocket is launched
     disable_base_game_silo_script=true, --- @setting disable_base_game_silo_script will not load the silo script at all
     research_queue_from_start=true, --- @setting research_queue_from_start when true the research queue is useable from the start
-    friendly_fire=false, --- @setting friendly_fire weather players will be able to attack each other on the same force
+    friendly_fire=true, --- @setting friendly_fire weather players will be able to attack each other on the same force
     enemy_expansion=false, --- @setting enemy_expansion a catch all for in case the map settings file fails to load
     chart_radius=10*32, --- @setting chart_radius the number of tiles that will be charted when the map starts
     items = { --- @setting items items and there condition for being given

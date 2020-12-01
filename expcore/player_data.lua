@@ -48,7 +48,7 @@ local Commands = require 'expcore.commands' --- @dep expcore.commands
 require 'config.expcore.command_general_parse' --- @dep config.expcore.command_general_parse
 
 --- Common player data that acts as the root store for player data
-local PlayerData = Datastore.connect('PlayerData', true) -- saveToDisk
+local PlayerData = Datastore.connect('PlayerData') -- saveToDisk
 PlayerData:set_serializer(Datastore.name_serializer) -- use player name
 
 --- Store and enum for the data saving preference
@@ -124,10 +124,12 @@ DataSavingPreference:on_load(function(player_name, dataPreference)
     game.players[player_name].print{'expcore-data.get-preference', dataPreference or DataSavingPreference.default}
 end)
 
+--- These are turned off, because players don't need this and I'm not bothered
 --- Load player data when they join
 Event.add(defines.events.on_player_joined_game, function(event)
     local player = game.players[event.player_index]
-    Async.wait(300, check_data_loaded, player)
+    -- Async.wait(300, check_data_loaded, player)
+    Datastore.ingest('request', 'PlayerData', player.name, '{"valid":false}')
     PlayerData:raw_set(player.name)
     PlayerData:request(player)
 end)

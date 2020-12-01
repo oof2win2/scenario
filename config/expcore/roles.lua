@@ -104,6 +104,7 @@ Roles.new_role('Trainee','TrMod')
     'command/unjail',
     'command/kick',
     'command/ban',
+    'command/join-message'
 }
 
 --- Trusted Roles
@@ -176,6 +177,7 @@ Roles.new_role('Veteran','Vet')
 :set_parent('Member')
 :allow{
     'command/chat-bot',
+    'command/join-message'
 }
 
 --- Standard User Roles
@@ -231,6 +233,7 @@ local default = Roles.new_role('Guest','')
     'command/preference',
     'command/set-preference',
     'command/connect',
+    'command/linkme',
     'gui/player-list',
     'gui/rocket-info',
     'gui/science-info',

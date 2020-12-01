@@ -143,8 +143,8 @@ Gui.element(function(_, parent)
     container.add{ type='flow' }.style.height = 4
     local online_time = format_time(game.tick, {days=true, hours=true, minutes=true, long=true})
     Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-general', server_details.reset_time, online_time})
-    Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-roles', table.concat(role_names, ', ')})
-    Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-chat'})
+    Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-roles', table.concat(role_names, ', ')})-- Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-chat'}) -- chat help
+    Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-credit'}) -- credit for the scenario
 
     return container
 end))
@@ -248,24 +248,25 @@ end))
 
 --- Content area for the servers tab
 -- @element backers_content
-Tab({'readme.backers-tab'}, {'readme.backers-tooltip'},
+Tab({'readme.staff-tab'}, {'readme.staff-tooltip'},
 Gui.element(function(_, parent)
     local container = parent.add{ type='flow', direction='vertical' }
 
     -- Add the title and description to the content
-    Gui.title_label(container, title_width-10, {'readme.backers-tab'})
-    Gui.centered_label(container, frame_width, {'readme.backers-general'})
+    Gui.title_label(container, title_width-10, {'readme.staff-tab'})
+    Gui.centered_label(container, frame_width, {'readme.staff-general'})
     Gui.bar(container)
     container.add{ type='flow' }
 
     -- Find which players will go where
     local done = {}
     local groups = {
-        { _roles={'Senior Administrator', 'Administrator'}, _title={'readme.backers-management'}, _width=230 },
-        { _roles={'Board Member', 'Senior Backer'}, _title={'readme.backers-board'}, _width=145 }, -- change role to board
-        { _roles={'Sponsor', 'Supporter'}, _title={'readme.backers-backers'}, _width=196 }, -- change to backer
-        { _roles={'Moderator', 'Trainee'}, _title={'readme.backers-staff'}, _width=235 },
-        { _roles={}, _time=3*3600*60, _title={'readme.backers-active'}, _width=235 },
+        -- { _roles={'Senior Administrator', 'Administrator'}, _title={'readme.staff-management'}, _width=230 }, -- disabled because why numtiple staff
+        -- { _roles={'Board Member', 'Senior Backer'}, _title={'readme.staff-board'}, _width=145 }, -- change role to board
+        -- { _roles={'Sponsor', 'Supporter'}, _title={'readme.staff-backers'}, _width=196 }, -- change to backer
+        -- { _roles={'Moderator', 'Trainee'}, _title={'readme.staff-staff'}, _width=235 }, -- disabled because why numtiple staff
+        { _roles={'Senior Administrator', 'Administrator', 'Moderator', 'Trainee'}, _title={'readme.staff-staff'}, _width=235 }, -- all staff in one place
+        -- { _roles={}, _time=3*3600*60, _title={'readme.staff-active'}, _width=235 },
     }
 
     -- Fill by player roles
