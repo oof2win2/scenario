@@ -29,7 +29,7 @@ end
 
 local function on_research_finished(event)
 	local research_name = get_infinite_research_name(event.research.name)
-	print ("JLOGGER: RESEARCH FINISHED: " .. research_name .. " " .. (event.research.level or "no-level"))
+	print ("JLOGGER: RESEARCH FINISHED: " .. research_name .. " " .. (event.research.level-1 or "no-level"))
 end
 
 local function on_trigger_fired_artillery(event)

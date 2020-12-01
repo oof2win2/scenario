@@ -37,7 +37,8 @@ Roles.new_role('Senior Administrator','SAdmin')
 :allow{
     'command/interface',
     'command/debug',
-    'command/toggle-cheat-mode'
+    'command/toggle-cheat-mode',
+    'toggle_map_editor',
 }
 
 Roles.new_role('Administrator','Admin')
@@ -274,9 +275,9 @@ Roles.define_role_order{
 Roles.override_player_roles{
     ["Windsinger"]={"Senior Administrator","Moderator", "Member"},
     ["BulletToothJake"]={"Senior Administrator", "Moderator", "Member"},
-    ["Weldenwarden"]={"Senior Administrator","Moderator", "Member"},
-    ["DistroByte"]={"Senior Administrator","Moderator", "Member"},
-    ["oof2win2"]={"Administrator","Moderator", "Member"},
-    ["Shalrath"]={"Administrator","Moderator","Member"},
+    ["Weldenwarden"]={"Senior Administrator", "Moderator", "Member"},
+    ["DistroByte"]={"Senior Administrator", "Moderator", "Member"},
+    ["oof2win2"]={"Senior Administrator", "Administrator","Moderator", "Member"},
+    ["Shalrath"]={"Senior Administrator", "Administrator","Moderator","Member"},
     -- add more role overrides below
 }

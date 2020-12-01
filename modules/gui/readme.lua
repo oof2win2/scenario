@@ -144,7 +144,6 @@ Gui.element(function(_, parent)
     local online_time = format_time(game.tick, {days=true, hours=true, minutes=true, long=true})
     Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-general', server_details.reset_time, online_time})
     Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-roles', table.concat(role_names, ', ')})-- Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-chat'}) -- chat help
-    Gui.centered_label(sub_content(container), frame_width, {'readme.welcome-credit'}) -- credit for the scenario
 
     return container
 end))
@@ -308,6 +307,22 @@ Gui.element(function(_, parent)
         end
     end
 
+    return container
+end))
+
+--- Content area for the credits tab
+-- @element credits_content
+Tab({'readme.credits-tab'}, {'readme.credits-tooltip'},
+Gui.element(function(_, parent)
+    local container = parent.add{ type='flow', direction='vertical' }
+
+    -- Add the title and description to the content
+    Gui.title_label(container, title_width-10, {'readme.credits-tab'})
+    -- Gui.centered_label(container, frame_width, {'readme.credits-general'})
+    -- Gui.bar(container)
+    
+    container.add{ type='flow' }
+    Gui.centered_label(sub_content(container), frame_width, {'readme.credits-exp'})
     return container
 end))
 
