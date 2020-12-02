@@ -42,7 +42,7 @@ return {
     'modules.addons.station-auto-name',
     'modules.addons.discord-alerts',
     'modules.addons.chat-reply',
-    -- 'modules.addons.tree-decon',
+    'modules.addons.tree-decon', -- does decon control for everything
     'modules.addons.awflogging', -- logging for JammyBot (AwF)
 
     --- Data
