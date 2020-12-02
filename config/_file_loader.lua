@@ -28,7 +28,7 @@ return {
     'modules.commands.find',
     'modules.commands.home',
     -- 'modules.commands.connect',
-    -- 'modules.commands.linkme', -- command is for 0.2 release :)
+    'modules.commands.linkme',
 
     --- Addons
     'modules.addons.chat-popups',
@@ -37,12 +37,12 @@ return {
     'modules.addons.advanced-start',
     'modules.addons.spawn-area',
     -- 'modules.addons.compilatron',
-    'modules.addons.scorched-earth',
+    -- 'modules.addons.scorched-earth',
     'modules.addons.pollution-grading',
     'modules.addons.station-auto-name',
     'modules.addons.discord-alerts',
     'modules.addons.chat-reply',
-    'modules.addons.tree-decon',
+    -- 'modules.addons.tree-decon',
     'modules.addons.awflogging', -- logging for JammyBot (AwF)
 
     --- Data
