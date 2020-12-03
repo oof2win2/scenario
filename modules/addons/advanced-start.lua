@@ -10,7 +10,7 @@ Event.add(defines.events.on_player_created, function(event)
     -- game init settings
     if event.player_index == 1 then
         player.force.friendly_fire = config.friendly_fire
-        game.map_settings.enemy_expansion.enabled = config.enemy_expansion
+        game.map_settings.enemy_expansion.enabled = config.enemy_expansion -- enable/disable enemy expansion
         local r = config.chart_radius
         local p = player.position
         player.force.chart(player.surface, {{p.x-r, p.y-r}, {p.x+r, p.y+r}})

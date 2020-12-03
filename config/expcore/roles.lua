@@ -275,7 +275,6 @@ Roles.define_role_order{
 Roles.override_player_roles{
     ["Windsinger"]={"Senior Administrator","Moderator", "Member"},
     ["BulletToothJake"]={"Senior Administrator", "Moderator", "Member"},
-    ["Weldenwarden"]={"Senior Administrator", "Moderator", "Member"},
     ["DistroByte"]={"Senior Administrator", "Moderator", "Member"},
     ["oof2win2"]={"Senior Administrator", "Administrator","Moderator", "Member"},
     ["Shalrath"]={"Senior Administrator", "Administrator","Moderator","Member"},
