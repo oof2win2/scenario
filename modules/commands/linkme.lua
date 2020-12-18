@@ -13,7 +13,7 @@ local write_json = _C.write_json
 -- AwfData:set_serializer(tostring)
 
 Commands.new_command('linkme', 'Link yourself to Discord and get the Member role')
-:add_param('Discord username', false)
+:add_param('Discord username without tag (Wumpus, not Wumpus#0001)', false)
 :register(function (player, discordUsername)
 	if not discordUsername then return Commands.error('Provide a Discord username!') end
 	-- local linked = AwFData:get(player.name)
