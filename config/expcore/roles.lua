@@ -105,7 +105,8 @@ Roles.new_role('Trainee','TrMod')
     'command/unjail',
     'command/kick',
     'command/ban',
-    'command/join-message'
+    'command/join-message',
+    'command/join-message-clear'
 }
 
 --- Trusted Roles
@@ -178,7 +179,8 @@ Roles.new_role('Veteran','Vet')
 :set_parent('Member')
 :allow{
     'command/chat-bot',
-    'command/join-message'
+    'command/join-message',
+    'command/join-message-clear'
 }
 
 --- Standard User Roles
@@ -279,4 +281,5 @@ Roles.override_player_roles{
     ["oof2win2"]={"Senior Administrator", "Administrator","Moderator", "Member"},
     ["Shalrath"]={"Senior Administrator", "Administrator","Moderator","Member"},
     -- add more role overrides below
+    -- Use Discord bot roles override, this shouldn't be used much
 }
