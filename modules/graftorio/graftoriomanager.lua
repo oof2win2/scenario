@@ -39,6 +39,9 @@ end
 
 Event.on_load(plugins.on_load)
 Event.on_init(plugins.on_init)
+for tick, handler in pairs(plugins["on_nth_tick"]) do
+  Event.on_nth_tick(tick, handler)
+end
 for event, handler in pairs(plugins.events) do
   Event.add(event, handler)
 end
@@ -48,6 +51,9 @@ Event.on_init(remote.on_init)
 
 Event.on_load(translation.on_load)
 Event.on_init(translation.on_init)
+for tick, handler in pairs(translation["on_nth_tick"]) do
+  Event.on_nth_tick(tick, handler)
+end
 for event, handler in pairs(translation.events) do
   Event.add(event, handler)
 end
@@ -55,6 +61,10 @@ end
 -- Keep as last to export it all
 Event.on_load(export.on_load)
 Event.on_init(export.on_init)
+for tick, handler in pairs(export["on_nth_tick"]) do
+  Event.on_nth_tick(tick, handler)
+end
 for event, handler in pairs(export.events) do
   Event.add(event, handler)
 end
+-- Event.on_nth_tick(600, export["on_nth_tick"])
