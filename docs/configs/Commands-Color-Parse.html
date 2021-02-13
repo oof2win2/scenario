@@ -5,7 +5,7 @@
     <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Commands-Parse config</title>
+    <title>Commands-Color-Parse config</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../spectre.min.css" type="text/css" />
     <link rel="stylesheet" href="../spectre-icons.min.css" type="text/css" />
@@ -58,8 +58,8 @@
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Discord-Alerts.html"><span class="module-name-item">Discord-Alerts</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Admin.html"><span class="module-name-item">Commands-Auth-Admin</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Roles.html"><span class="module-name-item">Commands-Auth-Roles</span></a></div></li>
-    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Color-Parse.html"><span class="module-name-item">Commands-Color-Parse</span></a></div></li>
-    <li class="nav-item active"><div class="nav-item-block-active block"><a href="../configs/Commands-Parse.html"><span class="module-name-item">Commands-Parse</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
+    <li class="nav-item active"><div class="nav-item-block-active block"><a href="../configs/Commands-Color-Parse.html"><span class="module-name-item">Commands-Color-Parse</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
+    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse.html"><span class="module-name-item">Commands-Parse</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse-Roles.html"><span class="module-name-item">Commands-Parse-Roles</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Runtime-Disable.html"><span class="module-name-item">Commands-Auth-Runtime-Disable</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Permission-Groups.html"><span class="module-name-item">Permission-Groups</span></a></div></li>
@@ -238,12 +238,8 @@
 
     <!-- module content header start -->
 
-    <h2><span class="body-module-name"><strong><em>Commands-Parse</em></strong></span> config</h2>
-    <p>This file contains some common command param parse functions;
-this file is less of a config and more of a requirement but you may wish to change how some behave;
-as such you need to be confident with lua but you edit this config file;
-use Commands.add_parse('name',function(input, player, reject) end) to add a parse;
-see ./expcore/commands.lua for more details</p>
+    <h2><span class="body-module-name"><strong><em>Commands-Color-Parse</em></strong></span> config</h2>
+    <p>This will make commands only work when a valid color from the presets has been selected</p>
     <p></p>
 
 
@@ -251,20 +247,6 @@ see ./expcore/commands.lua for more details</p>
     <!-- module info end -->
 
     <!-- module usage start -->
-    <h3>Usage</h3>
-    <pre class="code" data-lang="Lua"><code> Adds Parses:
-    boolean
-    <span class="global">string</span>-options - options: array
-    <span class="global">string</span>-max-length - max_length: number
-    number
-    integer
-    number-range - range_min: number, range_max: number
-    integer-range - range_min: number, range_max: number
-    player
-    player-online
-    player-alive
-    force
-    surface</code></pre>
     <!-- module usage end -->
 
     <!-- module content header end -->
@@ -278,6 +260,9 @@ see ./expcore/commands.lua for more details</p>
     <tbody>
     <tr>
     <td class="name"><a href="#expcore.commands">expcore.commands</a></td>
+    </tr>
+    <tr>
+    <td class="name"><a href="#utils.color_presets">utils.color_presets</a></td>
     </tr>
     </tbody>
     </table>
@@ -293,6 +278,31 @@ see ./expcore/commands.lua for more details</p>
     <div class="block section-item-header">
     <a href="#expcore.commands" class="fragment-hashtag">#</a>
     <span class="section-item-title" id="expcore.commands">expcore.commands</span>
+    </div>
+    </dt>
+    <dd>
+    <div class="section-item-body">
+
+
+    <!-- parameters start -->
+    <!-- parameters end -->
+
+    <!-- returns start -->
+    <!-- returns end -->
+
+
+    <!-- see also start -->
+    <!-- see also end -->
+
+    <!-- usage start -->
+    <!-- usage end -->
+
+    </dd>
+    <dt>
+    <div class="divider divider-custom"></div>
+    <div class="block section-item-header">
+    <a href="#utils.color_presets" class="fragment-hashtag">#</a>
+    <span class="section-item-title" id="utils.color_presets">utils.color_presets</span>
     </div>
     </dt>
     <dd>

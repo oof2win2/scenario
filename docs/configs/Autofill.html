@@ -5,7 +5,7 @@
     <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Commands-Parse config</title>
+    <title>Autofill config</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../spectre.min.css" type="text/css" />
     <link rel="stylesheet" href="../spectre-icons.min.css" type="text/css" />
@@ -37,14 +37,6 @@
 
 <!-- sidebar navigation -->
 <!-- list of items in a module -->
-    <ul class="nav nav-module-contents">
-    <li class="nav-item">
-    <h2>Sections</h2>
-    <ul class="nav">
-    <li class="nav-item"><a href="#Dependencies"><span class="fragment-hashtag">#</span> Dependencies</a></li>
-    </ul>
-    </li>
-    </ul>
     <ul class="nav nav-modules">
     <li class="nav-item">
     <h2>Configs</h2>
@@ -59,12 +51,12 @@
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Admin.html"><span class="module-name-item">Commands-Auth-Admin</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Roles.html"><span class="module-name-item">Commands-Auth-Roles</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Color-Parse.html"><span class="module-name-item">Commands-Color-Parse</span></a></div></li>
-    <li class="nav-item active"><div class="nav-item-block-active block"><a href="../configs/Commands-Parse.html"><span class="module-name-item">Commands-Parse</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
+    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse.html"><span class="module-name-item">Commands-Parse</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse-Roles.html"><span class="module-name-item">Commands-Parse-Roles</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Runtime-Disable.html"><span class="module-name-item">Commands-Auth-Runtime-Disable</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Permission-Groups.html"><span class="module-name-item">Permission-Groups</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Roles.html"><span class="module-name-item">Roles</span></a></div></li>
-    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Autofill.html"><span class="module-name-item">Autofill</span></a></div></li>
+    <li class="nav-item active"><div class="nav-item-block-active block"><a href="../configs/Autofill.html"><span class="module-name-item">Autofill</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Player-List.html"><span class="module-name-item">Player-List</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Rockets.html"><span class="module-name-item">Rockets</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Science.html"><span class="module-name-item">Science</span></a></div></li>
@@ -136,7 +128,7 @@
     <li class="nav-item">
     <h2>Guis</h2>
     <ul class="nav">
-    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Autofill.html"><span class="module-name-item">Autofill</span></a></div></li>
+    <li class="nav-item active"><div class="nav-item-block-active block"><a href="../guis/Autofill.html"><span class="module-name-item">Autofill</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Player-List.html"><span class="module-name-item">Player-List</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Readme.html"><span class="module-name-item">Readme</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Rocket-Info.html"><span class="module-name-item">Rocket-Info</span></a></div></li>
@@ -215,14 +207,6 @@
     </div>
     <div class="up-to-top">
     <!-- list of items in a module -->
-    <ul class="nav nav-module-contents">
-    <li class="nav-item">
-    <h4>Jump to Section</h4>
-    <ul class="nav">
-    <li class="nav-item"><a href="#Dependencies"><span class="fragment-hashtag">#</span> Dependencies</a></li>
-    </ul>
-    </li>
-    </ul>
     <a href="#">Top <i class="icon icon-upward"></i></a>
     </div>
     </div>
@@ -238,12 +222,8 @@
 
     <!-- module content header start -->
 
-    <h2><span class="body-module-name"><strong><em>Commands-Parse</em></strong></span> config</h2>
-    <p>This file contains some common command param parse functions;
-this file is less of a config and more of a requirement but you may wish to change how some behave;
-as such you need to be confident with lua but you edit this config file;
-use Commands.add_parse('name',function(input, player, reject) end) to add a parse;
-see ./expcore/commands.lua for more details</p>
+    <h2><span class="body-module-name"><strong><em>Autofill</em></strong></span> config</h2>
+    <p>This file contains all the different settings for the autofill system and gui</p>
     <p></p>
 
 
@@ -251,69 +231,16 @@ see ./expcore/commands.lua for more details</p>
     <!-- module info end -->
 
     <!-- module usage start -->
-    <h3>Usage</h3>
-    <pre class="code" data-lang="Lua"><code> Adds Parses:
-    boolean
-    <span class="global">string</span>-options - options: array
-    <span class="global">string</span>-max-length - max_length: number
-    number
-    integer
-    number-range - range_min: number, range_max: number
-    integer-range - range_min: number, range_max: number
-    player
-    player-online
-    player-alive
-    force
-    surface</code></pre>
     <!-- module usage end -->
 
     <!-- module content header end -->
 
     <!-- module section list start -->
-    <table class="section-content-list">
-    <thead>
-    <h3><a href="#Dependencies">Dependencies</a></h3>
-    <span></span>
-    </thead>
-    <tbody>
-    <tr>
-    <td class="name"><a href="#expcore.commands">expcore.commands</a></td>
-    </tr>
-    </tbody>
-    </table>
     <!-- module section list end -->
 
     <br />
 
     <!-- section start -->
-    <h3><span id="Dependencies" class="section-title"><a href="#Dependencies">Dependencies</a></span></h3>
-    <dl class="section-body-container">
-    <dt>
-    <div class="divider divider-custom"></div>
-    <div class="block section-item-header">
-    <a href="#expcore.commands" class="fragment-hashtag">#</a>
-    <span class="section-item-title" id="expcore.commands">expcore.commands</span>
-    </div>
-    </dt>
-    <dd>
-    <div class="section-item-body">
-
-
-    <!-- parameters start -->
-    <!-- parameters end -->
-
-    <!-- returns start -->
-    <!-- returns end -->
-
-
-    <!-- see also start -->
-    <!-- see also end -->
-
-    <!-- usage start -->
-    <!-- usage end -->
-
-    </dd>
-    </dl>
 
     <!-- section end -->
 
