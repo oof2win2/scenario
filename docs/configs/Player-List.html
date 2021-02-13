@@ -59,11 +59,13 @@
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Discord-Alerts.html"><span class="module-name-item">Discord-Alerts</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Admin.html"><span class="module-name-item">Commands-Auth-Admin</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Roles.html"><span class="module-name-item">Commands-Auth-Roles</span></a></div></li>
+    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Color-Parse.html"><span class="module-name-item">Commands-Color-Parse</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse.html"><span class="module-name-item">Commands-Parse</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Parse-Roles.html"><span class="module-name-item">Commands-Parse-Roles</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Commands-Auth-Runtime-Disable.html"><span class="module-name-item">Commands-Auth-Runtime-Disable</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Permission-Groups.html"><span class="module-name-item">Permission-Groups</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Roles.html"><span class="module-name-item">Roles</span></a></div></li>
+    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Autofill.html"><span class="module-name-item">Autofill</span></a></div></li>
     <li class="nav-item active"><div class="nav-item-block-active block"><a href="../configs/Player-List.html"><span class="module-name-item">Player-List</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Rockets.html"><span class="module-name-item">Rockets</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../configs/Science.html"><span class="module-name-item">Science</span></a></div></li>
@@ -135,6 +137,7 @@
     <li class="nav-item">
     <h2>Guis</h2>
     <ul class="nav">
+    <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Autofill.html"><span class="module-name-item">Autofill</span></a></div></li>
     <li class="nav-item active"><div class="nav-item-block-active block"><a href="../guis/Player-List.html"><span class="module-name-item">Player-List</span></a><i class="icon icon-arrow-left icon-arrow-left-custom"></i></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Readme.html"><span class="module-name-item">Readme</span></a></div></li>
     <li class="nav-item"><div class="nav-item-block-inactive block"><a href="../guis/Rocket-Info.html"><span class="module-name-item">Rocket-Info</span></a></div></li>
@@ -299,10 +302,6 @@
     <td class="summary">Teleports the action player to the user</td>
     </tr>
     <tr>
-    <td class="name"><a href="#kill_player">kill_player</a></td>
-    <td class="summary">Kills the action player, if there are alive</td>
-    </tr>
-    <tr>
     <td class="name"><a href="#report_player">report_player</a></td>
     <td class="summary">Reports the action player, requires a reason to be given</td>
     </tr>
@@ -313,10 +312,6 @@
     <tr>
     <td class="name"><a href="#jail_player">jail_player</a></td>
     <td class="summary">Jails the action player, requires a reason</td>
-    </tr>
-    <tr>
-    <td class="name"><a href="#temp_ban_player">temp_ban_player</a></td>
-    <td class="summary">Temp bans the action player, requires a reason</td>
     </tr>
     <tr>
     <td class="name"><a href="#kick_player">kick_player</a></td>
@@ -570,33 +565,6 @@
     <dt>
     <div class="divider divider-custom"></div>
     <div class="block section-item-header">
-    <a href="#kill_player" class="fragment-hashtag">#</a>
-    <span class="section-item-title" id="kill_player">kill_player</span>
-    </div>
-    </dt>
-    <dd>
-    <div class="section-item-body">
-
-    <p class="section-item-summary">Kills the action player, if there are alive</p>
-    <p class="section-item-description"></p>
-
-    <!-- parameters start -->
-    <!-- parameters end -->
-
-    <!-- returns start -->
-    <!-- returns end -->
-
-
-    <!-- see also start -->
-    <!-- see also end -->
-
-    <!-- usage start -->
-    <!-- usage end -->
-
-    </dd>
-    <dt>
-    <div class="divider divider-custom"></div>
-    <div class="block section-item-header">
     <a href="#report_player" class="fragment-hashtag">#</a>
     <span class="section-item-title" id="report_player">report_player</span>
     </div>
@@ -659,33 +627,6 @@
     <div class="section-item-body">
 
     <p class="section-item-summary">Jails the action player, requires a reason</p>
-    <p class="section-item-description"></p>
-
-    <!-- parameters start -->
-    <!-- parameters end -->
-
-    <!-- returns start -->
-    <!-- returns end -->
-
-
-    <!-- see also start -->
-    <!-- see also end -->
-
-    <!-- usage start -->
-    <!-- usage end -->
-
-    </dd>
-    <dt>
-    <div class="divider divider-custom"></div>
-    <div class="block section-item-header">
-    <a href="#temp_ban_player" class="fragment-hashtag">#</a>
-    <span class="section-item-title" id="temp_ban_player">temp_ban_player</span>
-    </div>
-    </dt>
-    <dd>
-    <div class="section-item-body">
-
-    <p class="section-item-summary">Temp bans the action player, requires a reason</p>
     <p class="section-item-description"></p>
 
     <!-- parameters start -->
@@ -771,7 +712,7 @@
     <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc </a></i>
     </div>
     <div class="content-footer column col-9 col-sm-12">
-    <i>Last updated 2020-08-17 14:39:39 UTC</i>
+    <i>Last updated 2021-01-27 00:27:15 UTC</i>
     </div>
     </div>
     </div>
