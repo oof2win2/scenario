@@ -44,6 +44,7 @@ return {
     'modules.addons.chat-reply',
     'modules.addons.tree-decon', -- does decon control for everything
     'modules.addons.awflogging', -- logging for JammyBot (AwF)
+    'modules.graftorio.graftoriomanager', -- graftorio manager(TheVirtualCrew/AwF)
 
     --- Data
     'modules.data.statistics',
