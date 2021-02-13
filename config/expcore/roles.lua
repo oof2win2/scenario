@@ -71,7 +71,6 @@ Roles.new_role('Moderator','Mod')
     'command/go-to-spawn/always',
     'command/clear-reports',
     'command/clear-warnings',
-    'command/clear-temp-ban',
     'command/clear-inventory',
     'command/bonus',
     'command/home',
@@ -96,7 +95,6 @@ Roles.new_role('Trainee','TrMod')
     'command/teleport',
     'command/bring',
     'command/goto',
-    'command/temp-ban',
     'command/give-warning',
     'command/get-warnings',
     'command/get-reports',
@@ -153,6 +151,7 @@ Roles.new_role('Supporter','Sup')
 :set_flag('is_spectator')
 :set_parent('Veteran')
 :allow{
+    'command/tag-color',
     'command/jail',
     'command/unjail',
     'command/join-message',
