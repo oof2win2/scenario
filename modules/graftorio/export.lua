@@ -1,7 +1,14 @@
-local translate = require("scripts/translation")
+local translate = require 'modules.graftorio.translation'
 local await_export = false
 
-global.export_data = {}
+local Event = require 'utils.event' ---@dep utils.event
+local Datastore = require 'expcore.datastore' --- @dep expcore.datastore
+
+local graftorioGlobal = Datastore.connect('graftorio')
+
+local graftorioConfig = require 'config.graftorio'
+
+graftorioGlobal:set('export_data', {})
 
 local function table_chunk(tbl, size)
   local chunks = {[1] = {}}
@@ -27,14 +34,14 @@ local function doExport()
   end
 
   local slices = table_chunk(reg.collectors, chunkSize)
-  global.export_data = {
+  graftorioGlobal:set('export_data', {
     current = 1,
     chunks = slices,
-    save_mode = settings.global["graftorio-server-save"].value or false
-  }
+    save_mode = graftorioConfig.server_save or false
+  })
 
   -- clear out file
-  if global.export_data.save_mode then
+  if graftorioGlobal:get('export_data').save_mode then
     game.write_file("graftorio/game.prom", "", false, 0)
   else
     game.write_file("graftorio/game.prom", "", false)
@@ -54,7 +61,7 @@ local lib = {
   },
   events = {
     [defines.events.on_tick] = function(event)
-      local d = global.export_data
+      local d = graftorioGlobal:get('export_data')
       if d and d.current and d.chunks[d.current] and event.tick % 4 == 0 and not translate.in_progress() then
         local insert = table.insert
         local result = {}

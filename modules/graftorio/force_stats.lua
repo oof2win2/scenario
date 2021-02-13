@@ -1,5 +1,11 @@
-local translate = require("scripts/translation")
+local translate = require('modules.graftorio.translation')
 gauges.evolution = prometheus.gauge("factorio_evolution", "evolution", {"force", "type"})
+
+local Event = require 'utils.event' ---@dep utils.event
+local Datastore = require 'expcore.datastore' --- @dep expcore.datastore
+
+local graftorioGlobal = Datastore.connect('graftorio')
+local graftorioConfig = require 'config.graftorio'
 
 gauges.item_production_input = prometheus.gauge("factorio_item_production_input", "items produced", {"force", "name", "localised_name"})
 gauges.item_production_output = prometheus.gauge("factorio_item_production_output", "items consumed", {"force", "name", "localised_name"})
@@ -32,7 +38,7 @@ local function collect_production()
       gauges.evolution:set(stat[1], {force_name, stat[2]})
     end
 
-    local researched_queue = global.last_research and global.last_research[force_name] or false
+    local researched_queue = graftorioGlobal:get('last_research') and graftorioGlobal:get('last_research')[force_name] or false
     if researched_queue then
       translate.translate(
         researched_queue.localised_name,
@@ -138,7 +144,7 @@ local function collect_networks()
           end
         )
 
-        local output_logi = settings.global["graftorio-logistic-items"].value or false
+        local output_logi = graftorioConfig.graftorio_logistic_items or false
         if output_logi then
           -- get logi net contents
           for name, n in pairs(network.get_contents()) do
@@ -202,8 +208,8 @@ local lib = {
   events = {
     [defines.events.on_research_finished] = function(event)
       local research = event.research
-      if not global.last_research then
-        global.last_research = {}
+      if not graftorioGlobal:get('last_research') then
+        graftorioGlobal:set('last_research')
       end
 
       local level = research.level
@@ -212,12 +218,14 @@ local lib = {
         level = level - 1
       end
 
-      global.last_research[research.force.name] = {
+      graftorioGlobal:update('last_research', function(key, last_research)
+        last_research[research.force.name] = {
         researched = 1,
         name = research.name,
         localised_name = research.localised_name,
         level = level
       }
+      end)
     end,
     [defines.events.on_tick] = function(event)
       local rest = event.tick % 600

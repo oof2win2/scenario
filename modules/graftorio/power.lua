@@ -1,4 +1,9 @@
-local translate = require("scripts/translation")
+local translate = require 'modules.graftorio.translation'
+
+local Event = require 'utils.event' ---@dep utils.event
+local Datastore = require 'expcore.datastore' --- @dep expcore.datastore
+
+local graftorioGlobal = Datastore.connect('graftorio')
 
 local script_data = {
   has_checked = false,
@@ -130,18 +135,23 @@ end
 
 local lib = {
   on_load = function()
-    script_data = global.power_data or script_data
+    script_data = graftorioGlobal:get('power_data') or script_data
   end,
   on_init = function()
-    global.power_data = global.power_data or script_data
+    graftorioGlobal:update('power_data', function(key, power_data)
+      return power_data or script_data
+    end)
   end,
   on_configuration_changed = function(event)
-    if global.power_data == nil then
-      global.power_data = script_data
+    if graftorioGlobal:get('power_data') == nil then
+      graftorioGlobal:set('power_data', script_data)
     end
 
-    if global.power_data.switches == nil then
-      global.power_data.switches = {}
+    if graftorioGlobal:get('power_data').switches == nil then
+      graftorioGlobal:update('power_data', function(_, power_data)
+        power_data.switches = {}
+        return power_data
+      end)
     end
     -- Basicly only when first added or version changed
     -- Power network is added in .10

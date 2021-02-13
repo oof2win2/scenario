@@ -43,6 +43,23 @@ for index, path in pairs(files) do
 
 end
 
+prometheus = require('prometheus.prometheus')
+require('utils.graftorio')
+local handler = require('event_handler')
+gauges = {}
+histograms = {}
+handler.add_lib(require('modules.graftorio.statics'))
+handler.add_lib(require('modules.graftorio.force_stats'))
+handler.add_lib(require('modules.graftorio.trains'))
+handler.add_lib(require('modules.graftorio.power'))
+handler.add_lib(require('modules.graftorio.plugins'))
+handler.add_lib(require('modules.graftorio.remote'))
+handler.add_lib(require('modules.graftorio.translation'))
+
+-- Keep as last to export it all
+handler.add_lib(require('modules.graftorio.export'))
+
+
 -- Override the default require; require can no longer load new scripts
 log('[INFO] Require Overright! No more requires can be made!')
 require 'overrides.require'

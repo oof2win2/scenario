@@ -1,3 +1,8 @@
+local Event = require 'utils.event' ---@dep utils.event
+local Datastore = require 'expcore.datastore' --- @dep expcore.datastore
+
+local graftorioGlobal = Datastore.connect('graftorio')
+
 local translate = {
   config = {
     batch_size = 15
@@ -44,11 +49,14 @@ function translate.in_progress()
 end
 
 function translate.on_load()
-  script_data = global.translation_script or script_data
+  script_data = graftorioGlobal:get('translation_script') or script_data
 end
 
 function translate.on_init()
-  global.translation_script = global.translation_script or script_data
+  graftorioGlobal:update('translation_script', function(key, translation_script)
+    translation_script = translation_script or script_data
+    return translation_script
+  end)
 end
 
 function translate.on_configuration_changed(event)
@@ -59,7 +67,7 @@ function translate.on_configuration_changed(event)
     translation_in_progress = {},
     translation_tries = {}
   }
-  global.translation_script = script_data
+  graftorioGlobal:set('translation_script', script_data)
 end
 
 translate.events = {

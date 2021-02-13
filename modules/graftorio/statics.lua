@@ -1,4 +1,4 @@
-local translate = require("scripts/translation")
+local translate = require 'modules.graftorio.translation'
 gauges.tick = prometheus.gauge("factorio_tick", "game tick")
 gauges.players_online = prometheus.gauge("factorio_online_players", "online players")
 gauges.seed = prometheus.gauge("factorio_seed", "seed", {"surface"})

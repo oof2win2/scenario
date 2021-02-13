@@ -1,5 +1,5 @@
-local power = require("scripts/power")
-local plugin = require("scripts/plugins")
+local power = require('modules.graftorio.power')
+local plugin = require('modules.graftorio.plugins')
 local remote_gauges = {}
 local remote_histograms = {}
 local remote_counters = {}

@@ -1,3 +1,5 @@
+local graftorioConfig = require 'config.graftorio'
+
 local function split(inputstr, sep)
   local t = {}
   for str in string.gmatch(inputstr, "([^" .. sep .. "]+)") do
@@ -7,7 +9,7 @@ local function split(inputstr, sep)
 end
 
 local train_buckets = {}
-local bucket_settings = split(settings.startup["graftorio-train-histogram-buckets"].value, ",")
+local bucket_settings = split(graftorioConfig.train_histogram_buckets, ",")
 for _, bucket in pairs(bucket_settings) do
   table.insert(train_buckets, tonumber(bucket))
 end
