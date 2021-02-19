@@ -39,9 +39,6 @@ end
 
 Event.on_load(plugins.on_load)
 Event.on_init(plugins.on_init)
-for tick, handler in pairs(plugins["on_nth_tick"]) do
-  Event.on_nth_tick(tick, handler)
-end
 for event, handler in pairs(plugins.events) do
   Event.add(event, handler)
 end
@@ -51,9 +48,6 @@ Event.on_init(remote.on_init)
 
 Event.on_load(translation.on_load)
 Event.on_init(translation.on_init)
-for tick, handler in pairs(translation["on_nth_tick"]) do
-  Event.on_nth_tick(tick, handler)
-end
 for event, handler in pairs(translation.events) do
   Event.add(event, handler)
 end
