@@ -153,6 +153,9 @@ local function on_player_joined_game(event)
 		}
 	)
 end
+local function checkEvolution(event)
+	print("JLOGGER: EVOLUTION: " .. string.format("%.4f", game.forces["enemy"].evolution_factor))
+end
 
 Event.add(defines.events.on_rocket_launched, on_rocket_launched)
 Event.add(defines.events.on_pre_player_died, on_pre_player_died)
@@ -163,3 +166,4 @@ Event.add(defines.events.on_built_entity, on_built_entity)
 Event.add(defines.events.on_player_left_game, on_player_left_game)
 Event.add(defines.events.on_player_joined_game, on_player_joined_game)
 Event.on_nth_tick(54000, logStats)
+Event.on_nth_tick(3600, checkEvolution) -- log evolution every
