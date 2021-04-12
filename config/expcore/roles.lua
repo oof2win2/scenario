@@ -178,8 +178,7 @@ Roles.new_role('Veteran','Vet')
 :set_parent('Member')
 :allow{
     'command/chat-bot',
-    'command/join-message',
-    'command/join-message-clear'
+    'command/last-location'
 }
 
 --- Standard User Roles

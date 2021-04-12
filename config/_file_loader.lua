@@ -27,8 +27,9 @@ return {
     'modules.commands.warnings',
     'modules.commands.find',
     'modules.commands.home',
-    -- 'modules.commands.connect',
+    'modules.commands.connect',
     'modules.commands.linkme',
+    'modules.commands.last-location',
 
     --- Addons
     'modules.addons.chat-popups',
