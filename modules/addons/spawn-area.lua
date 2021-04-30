@@ -84,7 +84,7 @@ local function spawn_pattern(surface, position)
     local tiles_to_make = {}
     local pattern_tile = config.pattern.pattern_tile
     for _, tile in pairs(config.pattern.locations) do
-        table.insert(tiles_to_make, {name=pattern_tile, position=apply_offset(position, tile)})
+        table.insert(tiles_to_make, {name=tile.name, position=apply_offset(position, tile.position)})
     end
     surface.set_tiles(tiles_to_make)
 end
@@ -104,8 +104,8 @@ end
 local function spawn_entities(surface, position)
     position = apply_offset(position, config.entities.offset)
     for _, entity in pairs(config.entities.locations) do
-        local pos = apply_offset(position, { x=entity[2], y=entity[3] })
-        entity = surface.create_entity{name=entity[1], position=pos, force='neutral'}
+        local pos = apply_offset(position, entity.position)
+        entity = surface.create_entity{name=entity.name, position=pos, force='neutral'}
         if config.entities.protected then protect_entity(entity) end
         entity.operable = config.entities.operable
     end
