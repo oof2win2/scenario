@@ -39,4 +39,14 @@ All are welcome to make pull requests and issues for this scenario, if you are i
 The All-Weekend Factorio codebase is licensed under the [GNU General Public License v3.0](LICENSE)
 [discord]: https://awf.yt
 
+<<<<<<< HEAD
 The original code for this scenario is from [Explosive Gaming](https://github.com/explosivegaming/scenario), we just adapted it to suit our needs and have some extra stuff we use
+=======
+[stable-dl]: https://github.com/explosivegaming/scenario/archive/master.zip
+[experimental-dl]: https://github.com/explosivegaming/scenario/archive/dev.zip
+[factorio]: https://factorio.com/
+[docs]: https://explosivegaming.github.io/scenario/
+[issues]: https://github.com/explosivegaming/scenario/issues/new/choose
+[website]: https://explosivegaming.nl
+[discord]: https://discord.explosivegaming.nl
+>>>>>>> 67fbac4befa3be00c7d62140ac6a2316a5fbdc94
